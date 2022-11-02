@@ -1,32 +1,30 @@
 <app-listado-generico [listado] = "productos">
     <ng-container contenido>
-        <section class="portafolios contenedor">
-            <section class="diseñoweb">
-                <div class="portafolios__grid contenedor">
-                    <div class="portafolio" *ngFor="let producto of productos; let i = index">
-                        <span [id]="producto.id" [className]="'example-class'">
-                            <img (click)="abrirAnimal(producto.id, producto.sonido);" 
-                            class="portafolio__imagen" [src]="producto.imagen" alt="imagen">
-                        </span>
-                        <h3 class="portafolio__heading"><span>{{producto.nombre}}</span></h3>
-                    </div>
+        <section class="animales contenedor">
+            <div class="animales__grid contenedor">
+                <div class="animal" *ngFor="let producto of productos; let i = index">
+                    <span [id]="producto.id" [className]="'example-class'">
+                        <img (click)="abrirAnimal(producto.id, producto.sonido);" 
+                        class="animal__imagen" [src]="producto.imagen" alt="imagen">
+                    </span>
+                    <h3 class="animal__heading"><span>{{producto.nombre}}</span></h3>
                 </div>
-            </section>
+            </div>
         </section>
     </ng-container>
 </app-listado-generico>
 
 <app-listado-generico [listado] = "animales">
     <ng-container contenido>
-        <section class="portafolios contenedor" *ngIf="animalesMostrar">
-            <section class="diseñoweb">
-                <div class="portafolios__grid contenedor">
-                    <div class="portafolio" *ngFor="let animal of animales; let i = index">
-                        <span><img (click)="playSound(animal.sonido)" class="portafolio__imagen" [src]="animal.imagen" alt="imagen"></span>
-                        <h3 class="portafolio__heading"><span>{{animal.nombre}}</span></h3>
-                    </div>
+        <section class="animales contenedor" *ngIf="animalesMostrar"> 
+            <div class="animales__grid contenedor fondo">
+                <div class="animal" *ngFor="let animal of animales; let i = index">
+                    <span>
+                        <img (click)="playSound(animal.sonido)" class="animal__imagen" [src]="animal.imagen" alt="imagen">
+                    </span>
+                    <h3 class="animal__heading"><span>{{animal.nombre}}</span></h3>
                 </div>
-            </section>
+            </div> 
         </section>
     </ng-container>
 </app-listado-generico>
